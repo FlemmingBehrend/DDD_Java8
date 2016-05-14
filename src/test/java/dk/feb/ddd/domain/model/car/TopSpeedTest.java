@@ -17,7 +17,7 @@ public class TopSpeedTest extends BaseTest {
 
     @Test
     public void topSpeedCanMaxBe300() {
-        new TopSpeed(300);
+        validate(new TopSpeed(300));
         exception.expect(ConstraintViolationException.class);
         exception.expect(numberOfConstraints(1));
         validate(new TopSpeed(301));

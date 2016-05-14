@@ -5,4 +5,5 @@
        bean-discovery-mode="all">
     <alternatives/>
     <decorators/>
+    <interceptors/>
 </beans>
