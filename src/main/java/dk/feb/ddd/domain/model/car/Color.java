@@ -10,11 +10,11 @@ import java.util.Objects;
 @DDDValueObject
 public class Color implements ValueObject<Color> {
 
-    @NotNull
-    @Size(min = 3, max = 10)
+    @NotNull(message = "can not be null")
+    @Size(min = 3, max = 10, message = "must be between 3 and 10 characters")
     private String color;
 
-    @NotNull
+    @NotNull(message = "can not be null")
     private Boolean metal;
 
     public Color(String color, Boolean metal) {
