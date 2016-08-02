@@ -19,7 +19,7 @@ public class CarIdTest {
         expectThrows(
                 ConstraintViolationException.class, () -> validate(new CarId(null))
         )
-                .getConstraintViolations().stream().forEach(cv -> assertEquals("CarId can not be null", cv.getMessage())
+                .getConstraintViolations().stream().forEach(cv -> assertEquals("may not be null", cv.getMessage())
         );
     }
 

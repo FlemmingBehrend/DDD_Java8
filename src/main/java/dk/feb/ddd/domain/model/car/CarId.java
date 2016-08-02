@@ -10,7 +10,7 @@ import java.util.Objects;
 @DDDValueObject
 public class CarId implements ValueObject<CarId> {
 
-    @NotNull(message = "CarId can not be null")
+    @NotNull
     @Size(min = 7, max = 7, message = "must have a length of 7")
     private String id;
 

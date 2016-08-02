@@ -24,7 +24,7 @@ class ColorTest {
             expectThrows(
                     ConstraintViolationException.class, () -> validate(new Color(null, Boolean.FALSE))
             )
-                    .getConstraintViolations().stream().forEach(constraintViolation -> assertEquals("can not be null", constraintViolation.getMessage())
+                    .getConstraintViolations().stream().forEach(constraintViolation -> assertEquals("may not be null", constraintViolation.getMessage())
             );
         }
 
@@ -34,7 +34,7 @@ class ColorTest {
             expectThrows(
                     ConstraintViolationException.class, () -> validate(new Color("Red", null))
             )
-                    .getConstraintViolations().stream().forEach(constraintViolation -> assertEquals("can not be null", constraintViolation.getMessage())
+                    .getConstraintViolations().stream().forEach(constraintViolation -> assertEquals("may not be null", constraintViolation.getMessage())
             );
         }
 
