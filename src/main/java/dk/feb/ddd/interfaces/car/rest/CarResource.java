@@ -16,6 +16,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.math.BigDecimal;
 
+import static dk.feb.ddd.domain.common.validation.Validator.validate;
+
 
 @Path("/cars")
 @Stateless
@@ -28,7 +30,7 @@ public class CarResource {
     @GET
     @Path("/{id}")
     public Response retrieveCarById(@PathParam("id") String id) {
-        Car car = carRepository.find(new CarId(id));
+        Car car = carRepository.find(validate(new CarId(id)));
         JsonObjectBuilder builder = Json.createObjectBuilder();
         builder.add("carId", car.getId().getValue());
         builder.add("brand", car.getBrand().name());

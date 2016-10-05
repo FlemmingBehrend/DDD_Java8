@@ -10,18 +10,20 @@ public class Validator {
 
     static javax.validation.Validator INSTANCE;
 
-    public static <T> void validate(T o) {
+    public static <T> T validate(T o) {
         Set<ConstraintViolation<T>> validate = getValidatorInstance().validate(o);
         if (!validate.isEmpty()) {
             throw new ConstraintViolationException(validate);
         }
+        return o;
     }
 
-    public static <T> void validateProperty(T o, String field) {
+    public static <T> T validateProperty(T o, String field) {
         Set<ConstraintViolation<T>> validate = getValidatorInstance().validateProperty(o, field);
         if (!validate.isEmpty()) {
             throw new ConstraintViolationException(validate);
         }
+        return o;
     }
 
     private static javax.validation.Validator getValidatorInstance() {
